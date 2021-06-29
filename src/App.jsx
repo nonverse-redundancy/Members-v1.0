@@ -1,40 +1,42 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+//import { ViewRouter } from "./routers/ViewRouter";
 
 // Auth
-import auth from './api/auth/auth';
+import auth from "./api/auth/auth";
 
 // Styles
-import './sass/app.scss'
+import "./sass/app.scss";
 
-// Components 
-import Loader from './components/Loader'
+// Components
+import Loader from "./components/Loader";
+import LogoutBtn from './components/buttons/LogoutBtn';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-useEffect(async () => {
-  await auth.check()
-  if (auth.authenticated) {
-    setIsAuthenticated(true)
-  } else {
-    auth.login()
-  }
-})
+  useEffect(async () => {
+    await auth.check();
+    if (auth.authenticated) {
+      setIsAuthenticated(true);
+    } else {
+      auth.login();
+    }
+  });
 
   if (isAuthenticated) {
     return (
-      <div className="app">
-        <h1>Dashboard</h1>
-        <button onClick={() => {auth.logout()}}>Logout</button>
-      </div>
-    )
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={LogoutBtn}/>
+        </Switch>
+      </BrowserRouter>
+    );
   } else {
-    return (
-      <Loader />
-    )
+    return <Loader />;
   }
 }
 
-export default App
+export default App;
