@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 // Authenticate SPA Using Nonverse SecureAuth
 class auth {
   constructor() {
