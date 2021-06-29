@@ -1,8 +1,12 @@
+// Styles
 @import url('https://fonts.gstatic.com');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
 
 // Variables
-@import "./variables";
+@import './variables';
+
+// App
+@import './components/app';
 
 // Components
 @import './components/loader.scss';

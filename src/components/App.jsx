@@ -5,14 +5,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import { ViewRouter } from "./routers/ViewRouter";
 
 // Auth
-import auth from "./api/auth/auth";
+import auth from "../api/auth/auth";
 
 // Styles
-import "./sass/app.scss";
+import "../sass/app.scss";
 
 // Components
-import Loader from "./components/Loader";
-import LogoutBtn from './components/buttons/LogoutBtn';
+import Loader from "./elements/Loader";
+import LogoutBtn from './buttons/LogoutBtn';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
