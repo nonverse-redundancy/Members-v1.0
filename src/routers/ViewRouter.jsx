@@ -1,14 +1,21 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import test from './test';
+import SidePanel from "../components/elements/SidePanel";
+
+import AccountPanel from "../components/panels/AccountPanel";
 
 export const ViewRouter = () => {
   return (
     <BrowserRouter>
-      <Switch>
-          <Route ></Route>
-      </Switch>
+      <div className="cont">
+        <SidePanel />
+        <div className="panel-cont">
+          <Switch>
+            <Route exact path="/account" component={AccountPanel} />
+          </Switch>
+        </div>
+      </div>
     </BrowserRouter>
   );
 };
