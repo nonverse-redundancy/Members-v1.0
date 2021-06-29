@@ -1,2 +1,10 @@
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+// Variables
+@import "./variables";
+
 // Components
-@import './components/Loader.scss';
+@import './components/loader.scss';
+
+@import './components/buttons.scss';
