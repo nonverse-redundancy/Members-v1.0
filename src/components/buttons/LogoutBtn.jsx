@@ -4,7 +4,7 @@ import auth from '../../api/auth/auth';
 const LogoutBtn = color => {
 
     return (
-        <div className="gra-btn" onClick={() => {auth.logout()}} style={{ backgroundColor: '#fc3b00' }}>
+        <div className="gra-btn logout-btn" onClick={() => {auth.logout()}}>
             Logout
         </div>
     )

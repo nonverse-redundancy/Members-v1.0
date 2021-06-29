@@ -1,9 +1,15 @@
-// Colors
-$main: #ECF0F3;
-
 // Font
 $font: 'Nova Round';
-$font-main: #333344;
+$font-main: #ECF0F3;
+
+// Colors
+$main: #ECF0F3;
+$main-mid: #202837;
+$main-dark: #333344;
+
+// Gradients
+$gradient-main-90: linear-gradient(90deg, rgb(0, 238, 255) 0%, rgb(0, 100, 255) 100%);
+$gradient-main-180: linear-gradient(180deg, rgb(0, 238, 255) 0%, rgb(0, 100, 255) 100%);
 
 // Config
-$body: $main;
+$body: $main; 

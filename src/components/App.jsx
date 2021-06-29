@@ -12,7 +12,7 @@ import "../sass/app.scss";
 
 // Components
 import Loader from "./elements/Loader";
-import LogoutBtn from './buttons/LogoutBtn';
+import { ViewRouter } from "../routers/ViewRouter";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -30,7 +30,7 @@ function App() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={LogoutBtn}/>
+          <Route path="/" component={ViewRouter}/>
         </Switch>
       </BrowserRouter>
     );
