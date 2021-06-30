@@ -12,7 +12,7 @@ class auth {
 
     // Default auth variables
     this.connected = false; // Was connection to SecureAuth successful?
-    this.authenticated = false; // Is a user authenticated in session
+    this.authenticated = false; // Is a user authenticated in session?
     this.uuid = false; // UUID of current authenticated user
 
     // Config
@@ -27,7 +27,7 @@ class auth {
   }
 
   // Direct login requests to auth server's login page
-  async login() {
+  login() {
     this.reset();
     window.location.replace(this.authurl + "login?continue=" + this.continue);
   }
