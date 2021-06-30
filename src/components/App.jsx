@@ -22,7 +22,9 @@ function App() {
     if (auth.authenticated) {
       setIsAuthenticated(true);
     } else {
-      auth.login();
+      if (auth.connected) {
+        auth.login();
+      }
     }
   });
 
