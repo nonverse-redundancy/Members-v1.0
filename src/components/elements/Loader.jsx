@@ -20,7 +20,7 @@ function Loader() {
                 <ClipLoader size={50} color={"#4995FD"} loading={loading}/>
             </div>
             {delayed ? (
-                <span className="load-warn-svr text-primary">We seem to be having trouble connecting to our servers</span>
+                <span className="load-warn-svr text-primary">We seem to be having trouble connecting to our servers <br />Try reloading the page</span>
             ) : ''}
         </div>
     )
