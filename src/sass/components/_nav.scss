@@ -1,22 +1,36 @@
-.side-panel-cont {
+.nav-cont {
   display: flex;
   align-items: center;
   height: 100vh;
-  .side-panel {
+  .nav {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: absolute;
-    background-color: $main-dark;
-    box-shadow: 10px 0px 35px 0px rgba(0, 0, 0, 0.4);
+    left: 0;
+    background-color: $main-splash;
+    box-shadow: 5px 0px 35px 0px $main-splash;
     height: 100%;
-    width: 17.5%;
-    strong {
-        position: relative;
-        top: 2%;
-        color: $font-main;
-        font-size: 2.5rem;
-        font-weight: normal
+    width: 5%;
+    .logo {
+      padding: 20px;
+    }
+    .nav-link {
+      font-size: 1.5rem;
+      color: $font-main;
+      cursor: pointer;
+    }
+    .pg-link {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3rem;
+      .nav-link {
+        margin: 1.5rem 0;
+      }
+    }
+    #settings {
+      position: absolute;
+      bottom: 4%;
     }
   }
 }

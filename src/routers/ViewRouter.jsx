@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import SidePanel from "../components/elements/SidePanel";
+import Nav from "../components/elements/Nav";
 
 import AccountPanel from "../components/panels/AccountPanel";
 
@@ -9,7 +9,7 @@ export const ViewRouter = () => {
   return (
     <BrowserRouter>
       <div className="cont">
-        <SidePanel />
+        <Nav />
         <div className="panel-cont">
           <Switch>
             <Route exact path="/account" component={AccountPanel} />
