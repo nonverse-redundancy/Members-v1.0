@@ -4,16 +4,16 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Nav from "../components/elements/Nav";
 import SecureAuth from '../components/widgets/SecureAuth';
 
-import Panel from "../components/elements/Panel";
+import WelcomeContainer from '../components/dashboards/WelcomeContainer';
 
 export const DashboardRouter = () => {
   return (
     <BrowserRouter>
       <div className="cont">
         <Nav />
-        <div className="panel-cont">
+        <div className="dashboard-cont">
           <Switch>
-            <Route exact path="/account" component={Panel} />
+            <Route exact path="/" component={WelcomeContainer} />
           </Switch>
         </div>
         <SecureAuth />
