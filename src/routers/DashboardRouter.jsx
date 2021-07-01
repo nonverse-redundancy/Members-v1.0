@@ -4,9 +4,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Nav from "../components/elements/Nav";
 import SecureAuth from '../components/widgets/SecureAuth';
 
-import Panel from "../components/panels/Panel";
+import Panel from "../components/elements/Panel";
 
-export const ViewRouter = () => {
+export const DashboardRouter = () => {
   return (
     <BrowserRouter>
       <div className="cont">

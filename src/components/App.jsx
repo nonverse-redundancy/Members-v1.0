@@ -12,7 +12,7 @@ import "../sass/app.scss";
 
 // Components
 import Loader from "./elements/Loader";
-import { ViewRouter } from "../routers/ViewRouter";
+import { DashboardRouter } from "../routers/DashboardRouter";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,7 +32,7 @@ function App() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={ViewRouter}/>
+          <Route path="/" component={DashboardRouter}/>
         </Switch>
       </BrowserRouter>
     );
