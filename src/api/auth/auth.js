@@ -29,13 +29,13 @@ class auth {
   // Direct login requests to auth server's login page
   login() {
     this.reset();
-    window.location.replace(this.authurl + "login?continue=" + this.continue);
+    window.location.replace(`${this.authurl}login?continue=${this.continue}`);
   }
 
   // Check if a user is authenticated in active session
   async check() {
     await axios
-      .get(this.authurl + "api/user/logged", {})
+      .get(`${this.authurl}api/user/logged`, {})
       .then((response) => {
         this.connected = true;
         this.authenticated = true;
@@ -57,7 +57,7 @@ class auth {
   // Remove user's authentication from session
   async logout() {
     await axios
-      .post(this.authurl + "api/user/logout", {})
+      .post(`${this.authurl}api/user/logout`, {})
       .then((response) => {
         this.reset();
         window.location.reload();
