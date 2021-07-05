@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 // Authenticate SPA Using Nonverse SecureAuth
 class auth {
