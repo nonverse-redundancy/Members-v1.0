@@ -31,7 +31,7 @@ class user {
   async get(uuid) {
     await axios.get(this.csrf);
     await axios
-      .get(`${this.apiurl}api/test/user/${uuid}`, {})
+      .get(`${this.apiurl}protected/user/${uuid}`, {})
       .then((response) => {
         console.log(response);
         this.firstname = response.data.name_first;
