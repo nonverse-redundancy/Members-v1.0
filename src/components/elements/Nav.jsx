@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import auth from "../../api/auth/auth";
 
 import nvlogo from "../../assets/svg/nvlogo.svg";
+
 // Components
-import LogoutBtn from "../buttons/LogoutBtn";
 
 const SidePanel = () => {
   //
