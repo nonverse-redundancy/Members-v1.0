@@ -17,16 +17,19 @@ import { DashboardRouter } from "../routers/DashboardRouter";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(async () => {
-    await auth.check();
-    if (auth.authenticated) {
-      setIsAuthenticated(true);
-    } else {
-      if (auth.connected) {
-        auth.login();
+  useEffect(() => {
+    async function authenticate() {
+      await auth.check();
+      if (auth.authenticated) {
+        setIsAuthenticated(true);
+      } else {
+        if (auth.connected) {
+          auth.login();
+        }
       }
     }
-  });
+    authenticate();
+  }, []);
 
   if (isAuthenticated) {
     return (

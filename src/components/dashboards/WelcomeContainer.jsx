@@ -10,10 +10,13 @@ const WelcomeContainer = () => {
 
     const [name, setName] = useState(false)
 
-    useEffect(async () => {
-        await user.get(auth.uuid)
-        setName(user.firstname)
-    })
+    useEffect(() => {
+        async function getData() {
+            await user.get(auth.uuid)
+            setName(user.firstname)
+        }
+        getData();
+    }, [])
 
     return (
         <div className="dashboard dash-welcome">
