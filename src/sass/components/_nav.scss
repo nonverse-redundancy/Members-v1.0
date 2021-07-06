@@ -34,3 +34,13 @@
     }
   }
 }
+
+.topnav {
+  display: inline;
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  .buttons {
+    float: right;
+  }
+}
