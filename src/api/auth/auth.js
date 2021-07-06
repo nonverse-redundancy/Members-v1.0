@@ -35,7 +35,7 @@ class auth {
   async check() {
     await axios.get(this.csrf);
     await axios
-      .get(`${this.authurl}api/user/logged`, {})
+      .get(`${this.authurl}session/user/current`, {})
       .then((response) => {
         this.connected = true;
         this.authenticated = true;
@@ -58,7 +58,7 @@ class auth {
   async logout() {
     await axios.get(this.csrf);
     await axios
-      .post(`${this.authurl}api/user/logout`, {})
+      .post(`${this.authurl}session/user/logout`, {})
       .then((response) => {
         this.reset();
         window.location.reload();
