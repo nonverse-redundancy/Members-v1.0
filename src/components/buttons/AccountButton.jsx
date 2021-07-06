@@ -6,7 +6,7 @@ import user from "../../api/user/user";
 const AccountButton = () => {
 
     function viewAccount() {
-        window.location.replace(`${auth.authurl}account`)
+        window.open(`${auth.authurl}account`)
     }
 
     return (
