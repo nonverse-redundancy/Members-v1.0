@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-import user from '../../api/user/UserData';
+import user from '../../api/user/user';
 
 const WelcomeContainer = () => {
 

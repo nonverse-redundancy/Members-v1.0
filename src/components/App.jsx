@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // Auth
 import auth from "../api/auth/auth";
-import user from "../api/user/UserData";
+import user from "../api/user/user";
 
 // Styles
 import "../sass/app.scss";
