@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // Auth
 import auth from "../api/auth/auth";
+import user from "../api/user/UserData";
 
 // Styles
 import "../sass/app.scss";
@@ -21,6 +22,7 @@ function App() {
     async function authenticate() {
       await auth.check();
       if (auth.authenticated) {
+        await user.get(auth.uuid);
         setIsAuthenticated(true);
       } else {
         if (auth.connected) {

@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import user from '../../api/user/UserData';
-import auth from '../../api/auth/auth';
 
 const WelcomeContainer = () => {
 
@@ -11,12 +10,9 @@ const WelcomeContainer = () => {
     const [name, setName] = useState(false)
 
     useEffect(() => {
-        async function getData() {
-            await user.get(auth.uuid)
-            setName(user.firstname)
-        }
-        getData();
-    }, [])
+        setName(user.firstname)
+    })
+    
 
     return (
         <div className="dashboard dash-welcome">
