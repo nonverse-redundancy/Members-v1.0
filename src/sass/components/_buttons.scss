@@ -1,13 +1,19 @@
 // Universal
 .gra-btn {
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 5px 15px;
     border-radius: 5px;
     color: $font-main;
+    min-width: 120px;
     box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     &:hover {
         opacity: 80%;
+    }
+    i {
+        margin-right: 30%;
     }
 }
 
@@ -17,4 +23,8 @@
     position: absolute;
     padding: 5px 20px;
     bottom: 3%;
+}
+.account-btn {
+    background-color: #2C80FF;
+    box-shadow: 3px 3px 20px 0px rgba(44, 128, 255, 0.5);
 }
