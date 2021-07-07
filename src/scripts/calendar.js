@@ -35,12 +35,26 @@ class calendar {
       seperator = '/'
     }
 
+    const nth = function(d) {
+      if (d > 3 && d < 21) return 'th';
+      switch (d % 10) {
+        case 1:  return "st";
+        case 2:  return "nd";
+        case 3:  return "rd";
+        default: return "th";
+      }
+    }
+
     if (format === "named") {
-      return `${this.day('named')} the ${this.date()} of ${this.month('named')}, ${this.year()}`;
-    } else if (format === 'eu' || !format) {
+      return `${this.day('named')} the ${this.date()}${nth(this.date())} of ${this.month('named')}, ${this.year()}`;
+    } else if (format === 'named-noyear') {
+      return `${this.day('named')} the ${this.date()}${nth(this.date())} of ${this.month('named')}`;
+    } else if (format === 'eu') {
         return `${this.date()}${seperator}${this.month()}${seperator}${this.year()}`
     } else if (format === 'us') {
         return `${this.month()}${seperator}${this.date()}${seperator}${this.year()}`
+    } else {
+      return `${this.date()}${seperator}${this.month()}${seperator}${this.year()}`
     }
   }
 
