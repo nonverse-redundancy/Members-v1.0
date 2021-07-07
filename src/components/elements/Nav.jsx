@@ -8,14 +8,13 @@ import nvlogo from "../../assets/svg/nvlogo.svg";
 // Components
 
 const SidePanel = () => {
-  //
 
   const history = useHistory();
 
   return (
     <div className="nav-cont">
       <div className="nav">
-        <img src={nvlogo} className="logo" />
+        <img src={nvlogo} alt="Nonverse-Logo" className="logo" />
         <div className="pg-link">
           <i className="nav-link fas fa-home" id="home"></i>
           <i className="nav-link fas fa-shield-alt" id="admin"></i>
