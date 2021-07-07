@@ -36,6 +36,7 @@ class auth {
 
   // Check if a user is authenticated in active session
   async check() {
+    this.#reset();
     await this.#csrf();
     await axios
       .get(`${this.authurl}session/user/current`, {})
