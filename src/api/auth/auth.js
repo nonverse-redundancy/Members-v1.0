@@ -23,14 +23,14 @@ class auth {
   }
 
   // Reset auth variables
-  reset() {
+  #reset() {
     this.authenticated = false;
     this.uuid = false;
   }
 
   // Direct login requests to auth server's login page
   login() {
-    this.reset();
+    this.#reset();
     window.location.replace(`${this.authurl}login?continue=${this.continue}`);
   }
 
@@ -53,7 +53,7 @@ class auth {
             this.connected = true;
           }
         }
-        this.reset();
+        this.#reset();
       });
   }
 
@@ -63,7 +63,7 @@ class auth {
     await axios
       .post(`${this.authurl}session/user/logout`, {})
       .then((response) => {
-        this.reset();
+        this.#reset();
         window.location.reload();
       })
       .catch((response) => {
