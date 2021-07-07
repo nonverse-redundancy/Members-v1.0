@@ -9,10 +9,18 @@ function Loader() {
     const [delayed, setDelayed] = useState(false);
 
     useEffect(() => {
+        let mounted = true;
+        
         setTimeout(() => {
-            setDelayed(true)
-        }, 5000);
-    })
+            if (mounted) {
+                setDelayed(true);
+            }
+        }, 5000)
+
+        return () => {
+            mounted = false
+        }
+    }, [loading])
 
     return (
         <div className="loader-cont">
