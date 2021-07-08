@@ -6,6 +6,7 @@ import AccountNav from "../components/elements/AccountNav";
 import Loader from "../components/elements/Loader";
 
 import TopNav from "../components/elements/TopNav";
+import SecureAuth from "../components/widgets/SecureAuth";
 
 import HomeButton from "../components/buttons/HomeButton";
 
@@ -22,6 +23,7 @@ export const AccountRouter = () => {
                   <Route path="*" component={Loader} />
               </Switch>
           </div>
+          <SecureAuth />
       </div>
     </BrowserRouter>
   );
