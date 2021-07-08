@@ -9,6 +9,7 @@ class user {
     this.connected = false; // Was connection to API successful?
     this.firstname = false; // Real (human) name of requested user
     this.lastname = false; // Real (human) name of requested user
+    this.fullname = false; // Real (human) name of requested user
     this.alias = false; // Username of requested user
     this.email = false; // Email of requested user
     this.details = false; // Additional details of requested user
@@ -22,6 +23,7 @@ class user {
   reset() {
     this.firstname = false;
     this.lastname = false;
+    this.fullname = false;
     this.alias = false;
     this.email = false;
     this.details = false;
@@ -36,6 +38,7 @@ class user {
         console.log(response);
         this.firstname = response.data.name_first;
         this.lastname = response.data.name_last;
+        this.fullname = `${this.firstname} ${this.lastname}`;
         this.alias = response.data.username;
         this.email = response.data.email;
         this.details = {
