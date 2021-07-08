@@ -22,3 +22,15 @@
         }
     }
 }
+
+.account-cont {
+    //background-color: beige;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    bottom: 0;
+    width: 95%;
+    height: 100%;
+}

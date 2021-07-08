@@ -9,6 +9,10 @@
     position: absolute;
     height: 100%;
     left: 0;
+    .pg-link {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .dash-nav {
     background-color: $main-splash;
@@ -17,18 +21,14 @@
     .logo {
       padding: 20px;
     }
+    .pg-link {
+      margin-top: 3rem;
+    }
     .nav-link {
       font-size: 1.5rem;
       color: $font-main;
       cursor: pointer;
-    }
-    .pg-link {
-      display: flex;
-      flex-direction: column;
-      margin-top: 3rem;
-      .nav-link {
-        margin: 1.5rem 0;
-      }
+      margin: 1.5rem 0;
     }
     #settings {
       position: absolute;
@@ -36,9 +36,42 @@
     }
   }
   .account-nav {
-    background-color: $main-splash;
-    box-shadow: 5px 0px 35px 0px $main-splash;
-    width: 5%;
+    background-color: $main-mid;
+    box-shadow: 5px 0px 35px 0px $main-mid;
+    width: 12%;
+    .logo {
+      position: absolute;
+      height: 40px;
+      top: 5%;
+      left: 18%;
+    }
+    .pg-link {
+      position: absolute;
+      margin-top: 12rem;
+      left: 0;
+      width: 85%;
+      a {
+        color: $main-dark;
+        position: relative;
+        font-size: 18px;
+        padding: 3% 0;
+        padding-left: 20%;
+        cursor: pointer;
+      }
+      .active {
+        color: $font-main;
+        background-color: $main-splash;
+        box-shadow: 2px 2px 15px 0 $main-splash;
+      }
+    }
+    .logout {
+      position: absolute;
+      bottom: 3%;
+      left: 18%;
+      font-size: 18px;
+      color: #FF2E00;
+      cursor: pointer;
+    }
   }
 }
 
