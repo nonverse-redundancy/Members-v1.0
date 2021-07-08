@@ -14,6 +14,7 @@ import "../sass/app.scss";
 // Components
 import Loader from "./elements/Loader";
 import { DashboardRouter } from "../routers/DashboardRouter";
+import { AccountRouter } from "../routers/AccountRouter";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -37,6 +38,7 @@ function App() {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path="/account" component={AccountRouter} />
           <Route path="/" component={DashboardRouter}/>
         </Switch>
       </BrowserRouter>
