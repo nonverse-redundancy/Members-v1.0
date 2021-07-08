@@ -12,17 +12,17 @@ const PersonalSection = () => {
     }
     
     return (
-        <div className="sec sec-personal">
+        <div className="a-sec sec-personal">
             <h1>Personal Information</h1>
             <div className="info">
-                <div className="r">
+                <div className="l">
                     <h4 className="i">Name</h4>
                     <h4 className="i">Username</h4>
                     <h4 className="i">Email</h4>
                     <h4 className="i">Birthday</h4>
                     <h4 className="i">Phone</h4>
                 </div>
-                <div className="l">
+                <div className="r">
                     <form className={`out ${isEdit ? 'isedit' : ''}`} action="">
                         <input type="text" className="i" value={user.fullname} readOnly={!isEdit}/>
                         <input type="text" className="i" value={user.alias} readOnly={!isEdit}/>
