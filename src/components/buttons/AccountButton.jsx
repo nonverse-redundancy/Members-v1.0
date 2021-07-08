@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
+import { useHistory } from "react-router";
 
-import auth from "../../api/auth/auth";
 import user from "../../api/user/user";
 
 const AccountButton = () => {
+  const history = useHistory();
 
-    function viewAccount() {
-        window.open(`${auth.authurl}account`)
-    }
+  function viewAccount() {
+    window.location.replace("/account");
+  }
 
-    return (
-        <div className="gra-btn account-btn" onClick={viewAccount}>
-            <i className="fas fa-user"></i>{user.alias}
-        </div>
-    )
-}
+  return (
+    <div className="gra-btn account-btn" onClick={viewAccount}>
+      <i className="fas fa-user"></i>
+      {user.alias}
+    </div>
+  );
+};
 
-export default AccountButton
+export default AccountButton;
