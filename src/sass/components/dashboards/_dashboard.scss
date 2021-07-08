@@ -8,19 +8,6 @@
     bottom: 0;
     width: 95%;
     height: 100%;
-    .dashboard {
-        //background-color: blanchedalmond;
-        width: 93%;
-        height: 91%;
-        h1 {
-            color: $main-dark;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: $main-dark;
-            opacity: 70%;
-        }
-    }
 }
 
 .account-cont {
@@ -31,6 +18,20 @@
     justify-content: center;
     right: 0;
     bottom: 0;
-    width: 95%;
+    width: 88%;
     height: 100%;
+}
+
+.dashboard {
+    //background-color: blanchedalmond;
+    width: 93%;
+    height: 91%;
+    h1 {
+        color: $main-dark;
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: $main-dark;
+        opacity: 70%;
+    }
 }

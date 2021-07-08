@@ -11,11 +11,13 @@
 @import './components/loader.scss';
 @import './components/nav';
 
-@import './components/dashboards/dashboard';
-
 @import './components/buttons.scss';
 
 // Widgets
 @import './components/widgets/widget';
 
 @import './components/widgets/secureauth';
+
+//Dashboard
+@import './components/dashboards/dashboard';
+@import './components/dashboards/account';

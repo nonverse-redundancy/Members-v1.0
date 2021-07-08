@@ -1,0 +1,89 @@
+.account {
+  position: absolute;
+  width: 85%;
+  height: 75%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  top: 12rem;
+  .sec {
+    //background-color: aqua;
+    //border: 3px solid #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    h1 {
+      font-size: 30px;
+      color: $main-splash;
+    }
+    .edit {
+      position: relative;
+      margin-top: 2%;
+      font-size: 20px;
+      color: $main-splash;
+      max-width: min-content;
+      cursor: pointer;
+    }
+    .info {
+      //background-color: pink;
+      float: right;
+      margin-left: auto;
+      display: grid;
+      grid-column-gap: 20px;
+      margin-top: 2%;
+      width: 92.5%;
+      .i {
+        //background-color: blueviolet;
+        color: $main-dark;
+        font-size: 20px;
+        padding: 0.75rem 0;
+        margin: 0;
+      }
+      .verified {
+        i {
+          margin-left: 2%;
+        }
+      }
+      .r {
+        //background-color: plum;
+        border-right: 3px solid $main-dark;
+      }
+      .l {
+        //background-color: rebeccapurple;
+        width: 80%;
+        form {
+          display: flex;
+          flex-direction: column;
+          input {
+            opacity: 70%;
+            background-color: $main;
+            border: none;
+            outline: none;
+            line-height: 1em;
+            width: fit-content;
+          }
+        }
+        .isedit {
+          input {
+            background-color: $main-mid;
+          }
+        }
+      }
+      .i-short {
+        max-width: 125px;
+      }
+      .isedit {
+        background-color: $main-mid;
+      }
+    }
+  }
+  .sec-account {
+    .info {
+      grid-template-columns: 20% 70%;
+    }
+  }
+}
