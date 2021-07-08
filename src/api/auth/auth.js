@@ -7,7 +7,6 @@ class auth {
     this.authurl = "http://auth.nonverse.test/";
 
     // URL to direct to after login
-    this.continue = "my.nonverse.test";
 
     // Default auth variables
     this.connected = false; // Was connection to SecureAuth successful?
@@ -31,7 +30,9 @@ class auth {
   // Direct login requests to auth server's login page
   login() {
     this.#reset();
-    window.location.replace(`${this.authurl}login?continue=${this.continue}`);
+    const host = window.location.hostname;
+    const path = window.location.pathname.substr(1);
+    window.location.replace(`${this.authurl}login?continue=${host}&resource=${path}`);
   }
 
   // Check if a user is authenticated in active session
