@@ -1,7 +1,7 @@
 // React
 import React from "react";
 import { useHistory } from "react-router-dom";
-import auth from "../../api/auth/auth";
+import auth from "../../api/auth/auth"; // Temporary auth import
 
 import nvlogo from "../../assets/svg/nvlogo.svg";
 
@@ -13,7 +13,7 @@ const SidePanel = () => {
 
   return (
     <div className="nav-cont">
-      <div className="nav">
+      <div className="nav dash-nav">
         <img src={nvlogo} alt="Nonverse-Logo" className="logo" />
         <div className="pg-link">
           <i className="nav-link fas fa-home" id="home"></i>
