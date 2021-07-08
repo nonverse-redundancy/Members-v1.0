@@ -21,9 +21,7 @@ const SidePanel = () => {
           <i className="nav-link fas fa-envelope" id="messages"></i>
           <i className="nav-link fas fa-check" id="todo"></i>
         </div>
-        <i className="nav-link fas fa-cog" id="settings" onClick={() => {
-          auth.logout() //NOTE This is a temporary logout button and should be removed
-        }}></i>
+        <i className="nav-link fas fa-cog" id="settings"></i>
       </div>
     </div>
   );
