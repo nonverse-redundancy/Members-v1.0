@@ -3,9 +3,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Nav from "../components/elements/Nav";
 import TopNav from "../components/elements/TopNav";
-import SecureAuth from '../components/widgets/SecureAuth';
+import SecureAuth from "../components/widgets/SecureAuth";
 
-import WelcomeContainer from '../components/dashboards/WelcomeContainer';
+import Loader from "../components/elements/Loader";
+
+import WelcomeContainer from "../components/dashboards/WelcomeContainer";
 
 export const DashboardRouter = () => {
   return (
@@ -13,9 +15,10 @@ export const DashboardRouter = () => {
       <div className="cont">
         <Nav />
         <div className="dashboard-cont">
-        <TopNav />
+          <TopNav />
           <Switch>
             <Route exact path="/" component={WelcomeContainer} />
+            <Route path="*" component={Loader} />
           </Switch>
         </div>
         <SecureAuth />
