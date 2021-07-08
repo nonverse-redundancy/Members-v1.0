@@ -1,17 +1,14 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 //Buttons
-import AccountButton from '../buttons/AccountButton';
 
-const TopNav = () => {
+const TopNav = ({ children }) => {
+  return (
+    <div className="topnav">
+      <div className="buttons">{children}</div>
+    </div>
+  );
+};
 
-    return (
-        <div className="topnav">
-            <div className="buttons">
-                <AccountButton/>
-            </div>
-        </div>
-    )
-}
-
-export default TopNav
+export default TopNav;
