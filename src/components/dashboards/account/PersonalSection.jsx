@@ -1,19 +1,55 @@
 import React from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 
-import user from '../../../api/user/user';
+import auth from "../../../api/auth/auth";
+import user from "../../../api/user/user";
 
 const PersonalSection = () => {
 
     const [isEdit, setIsEdit] = useState(false);
+    const [processing, setProcessing] = useState(false);
+    const [userData, setUserData] = useState({
+        name: user.fullname,
+    });
+    const [error, setError] = useState(false);
+    const [done, setDone] = useState(false);
 
-    function editHander() {
-        setIsEdit(!isEdit)
+    const history = useHistory()
+
+    async function editHander() {
+        if (isEdit) {
+            setProcessing(true)
+            
+            await user.update(auth.uuid, userData)
+            await user.get(auth.uuid)
+
+            setError(user.error)
+            if (user.status === 200) {
+                setDone(true)
+                setTimeout(() => {
+                    setDone(false);
+                }, 3000)
+            }
+            
+            setProcessing(false)
+            history.push('#')
+        } else {
+            setError(false);
+            setDone(false);
+            setUserData({
+                name: user.fullname,
+            })
+
+        }
+        setIsEdit(!isEdit);
     }
     
     return (
         <div className="a-sec sec-personal">
             <h1>Personal Information</h1>
+            {error ? <span className="danger">{error}</span> : ''}
+            {done ? <span className="success">Account Updated</span> : ''}
             <div className="info">
                 <div className="l">
                     <h4 className="i">Name</h4>
@@ -24,8 +60,13 @@ const PersonalSection = () => {
                 </div>
                 <div className="r">
                     <form className={`out ${isEdit ? 'isedit' : ''}`} action="">
-                        <input type="text" className="i" value={user.fullname} readOnly={!isEdit}/>
-                        <input type="text" className="i" value={user.alias} readOnly={!isEdit}/>
+                        <input type="text" className="i" value={isEdit ? userData.name : user.fullname} readOnly={!isEdit} onChange={(e) => {
+                            setUserData({
+                                ...userData,
+                                name: e.target.value,
+                            })
+                        }}/>
+                        <input type="text" className="i" name="username" value={user.alias} readOnly={!isEdit}/>
                         <div className="verified">
                             <input type="text" className="i" value={user.email} readOnly={!isEdit}/>
                             <i className="fas fa-check success"></i>
@@ -38,7 +79,9 @@ const PersonalSection = () => {
                     </form>
                 </div>
             </div>
-            <a className="edit" onClick={() => {editHander()}}>{isEdit ? 'Save' : 'Edit'}</a>
+            <a className={`edit ${processing ? 'isload' : ''}`} 
+               onClick={processing ? console.log('Processing') : () => {editHander()}}>{isEdit ? 'Save' : 'Edit'}
+            </a>
         </div>
         )
 }
