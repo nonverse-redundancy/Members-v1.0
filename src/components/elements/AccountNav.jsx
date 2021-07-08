@@ -7,7 +7,6 @@ import nvlogo from "../../assets/svg/nvlogo-dark.svg";
 import auth from "../../api/auth/auth";
 
 const AccountNav = () => {
-  const history = useHistory();
 
   return (
     <div className="nav-cont">

@@ -8,9 +8,6 @@ const WelcomeContainer = () => {
 
     document.title = 'Nonverse | Home'
 
-    // Calendar
-    var today = new Date();
-    
     return (
         <div className="dashboard dash-welcome">
             <h1>Welcome back {user.firstname}</h1>
