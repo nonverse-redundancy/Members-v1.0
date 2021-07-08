@@ -16,11 +16,14 @@ class user {
 
     // Config
     axios.defaults.withCredentials = true;
-    this.csrf = `${this.apiurl}sanctum/csrf-cookie`; // Location of CSRF token
+  }
+
+  async #csrf() {
+    await axios.get(`${this.apiurl}sanctum/csrf-cookie`);
   }
 
   // Reset user variables
-  reset() {
+  #reset() {
     this.firstname = false;
     this.lastname = false;
     this.fullname = false;
@@ -31,9 +34,10 @@ class user {
 
   // Get user data from API
   async get(uuid) {
-    await axios.get(this.csrf);
+    this.#reset();
+    await this.#csrf();
     await axios
-      .get(`${this.apiurl}protected/user/${uuid}`, {})
+      .get(`${this.apiurl}protected/user/view/${uuid}`, {})
       .then((response) => {
         console.log(response);
         this.firstname = response.data.name_first;
@@ -43,12 +47,34 @@ class user {
         this.email = response.data.email;
         this.details = {
           language: response.data.language,
-          created: 'Unavailable',
-          updates: 'Unavailable',
-        }
+          created: "Unavailable",
+          updates: "Unavailable",
+        };
       })
       .catch((e) => {
         //
+      });
+  }
+
+  async update(uuid, data) {
+    await this.#csrf();
+    await axios
+      .post(`${this.apiurl}protected/user/update/${uuid}`, {
+        name: data.name,
+        username: data.alias,
+        email: data.email,
+        birthday: data.birthday,
+        phone: data.phone,
+      })
+      .then((response) => {
+        console.log(response);
+        this.error = false;
+        this.status = 200;
+      })
+      .catch((e) => {
+        console.log(e);
+        this.error = 'Something Went Wrong';
+        this.status = 500;
       });
   }
 }
