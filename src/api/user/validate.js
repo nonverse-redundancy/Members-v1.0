@@ -4,7 +4,7 @@ class validate {
   constructor() {
     // API server validator location
     this.apiurl = "http://api.nonverse.test/";
-    this.validatorurl = 'http://api.nonverse.test/client/validator/';
+    this.validatorurl = "http://api.nonverse.test/client/validator/";
 
     // Config
     axios.defaults.withCredentials = true;
@@ -14,18 +14,25 @@ class validate {
     await axios.get(`${this.apiurl}sanctum/csrf-cookie`);
   }
 
+  error() {
+    if (this.name.error || this.email.error) {
+      return true;
+    }
+    return false;
+  }
+
   name(data, compare) {
     this.name.error = false;
     if (compare) {
       if (data === compare) {
-        return this.name.error = false;
+        return (this.name.error = false);
       }
     }
     const count = data.split(" ");
     if (count.length < 2) {
-      this.name.error = 'First and last names are required';
+      this.name.error = "First and last names are required";
     } else if (count.length > 2) {
-      this.name.error = 'Only first and last name can be entered';
+      this.name.error = "Only first and last name can be entered";
     } else {
       this.name.error = false;
     }
@@ -35,7 +42,7 @@ class validate {
     this.email.error = false;
     if (compare) {
       if (data === compare) {
-        return this.email.error = false;
+        return (this.email.error = false);
       }
     }
     await this.#csrf();
@@ -46,7 +53,7 @@ class validate {
       .then((response) => {
         switch (response.data) {
           case "The email field is required.":
-            this.email.error = 'An email is required';
+            this.email.error = "An email is required";
             break;
           case "The email must be a valid email address.":
             this.email.error = "Invalid email";

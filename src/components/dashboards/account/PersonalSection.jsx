@@ -16,48 +16,14 @@ const PersonalSection = () => {
   const [done, setDone] = useState(false);
   const [validator, setValidator] = useState(false);
 
-  var typeTimerName;
-  async function nameHandler(name) {
-    setProcessing(false);
-    setValidator({
-      ...validator,
-      name: false,
-    });
-    if (name !== user.fullname) {
-        await validate.name(name, user.fullname);
-        if (validate.name.error) {
-            setProcessing(true);
-            setValidator({
-                ...validator,
-                name: validate.name.error,
-            })
-        }
-    } else {
+  async function process() {
+    await validate.email(userData.email, user.email)
+    await validate.name(userData.name, user.name)
+    if (!validate.error()) {
       setProcessing(false);
     }
   }
-
-  var typeTimerEmail;
-  async function emailHandler(email) {
-    setProcessing(false);
-    setValidator({
-      ...validator,
-      email: false,
-    });
-    if (email !== user.email) {
-        await validate.email(email, user.email);
-        if (validate.email.error) {
-            setProcessing(true)
-            setValidator({
-                ...validator,
-                email: validate.email.error,
-            })
-        }
-    } else {
-        setProcessing(false);
-    }
-  }
-
+  
   async function editHander() {
     if (isEdit) {
       setProcessing(true);
@@ -86,6 +52,44 @@ const PersonalSection = () => {
       });
     }
     setIsEdit(!isEdit);
+  }
+
+  var typeTimerName;
+  async function nameHandler(name) {
+    setValidator({
+      ...validator,
+      name: false,
+    });
+    if (name !== user.fullname) {
+        await validate.name(name, user.fullname);
+        if (validate.name.error) {
+            setProcessing(true);
+            setValidator({
+                ...validator,
+                name: validate.name.error,
+            })
+        }
+    }
+    process();
+  }
+
+  var typeTimerEmail;
+  async function emailHandler(email) {
+    setValidator({
+      ...validator,
+      email: false,
+    });
+    if (email !== user.email) {
+        await validate.email(email, user.email);
+        if (validate.email.error) {
+            setProcessing(true)
+            setValidator({
+                ...validator,
+                email: validate.email.error,
+            })
+        }
+    }
+    process();
   }
   
   return (
