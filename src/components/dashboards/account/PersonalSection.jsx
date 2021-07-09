@@ -145,12 +145,12 @@ const PersonalSection = () => {
                         }
                         }
                         />
-                        <i className="fas fa-check success"></i>
+                        {isEdit ? '' : <i className="fas fa-check success"></i>}
                     </div>
                     <input type="text" className="i" value="Unavailable" readOnly={!isEdit}/>
                     <div className="verified">
                         <input type="text" className="i i-short" value="Unavailable" readOnly={!isEdit}/>
-                        <i className="fas fa-times danger"></i>
+                        {isEdit ? '' : <i className="fas fa-times danger"></i>}
                     </div>
                 </form>
             </div>
