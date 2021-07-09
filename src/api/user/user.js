@@ -68,13 +68,13 @@ class user {
       })
       .then((response) => {
         console.log(response);
-        this.error = false;
-        this.status = 200;
+        this.update.error = false;
+        this.update.status = 200;
       })
       .catch((e) => {
         console.log(e);
-        this.error = 'Something Went Wrong';
-        this.status = 500;
+        this.update.error = 'Something Went Wrong';
+        this.update.status = 500;
       });
   }
 }
