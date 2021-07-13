@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 
 import auth from "../../../api/auth/auth";
 import user from "../../../api/user/user";
+import recovery from "../../../api/user/recovery";
 import validate from "../../../api/user/validate";
 
 const PersonalSection = () => {
@@ -19,7 +20,7 @@ const PersonalSection = () => {
   async function process() {
     await validate.email(userData.email, user.email, true)
     await validate.name(userData.name, user.name)
-    if (!validate.error()) {
+    if (!validate.error() && (user.email !== recovery.email)) {
       setProcessing(false);
     }
   }
@@ -79,15 +80,22 @@ const PersonalSection = () => {
       ...validator,
       email: false,
     });
-    if (email !== user.email) {
-        await validate.email(email, user.email, true);
-        if (validate.email.error) {
-            setProcessing(true)
-            setValidator({
-                ...validator,
-                email: validate.email.error,
-            })
-        }
+    if (email !== recovery.email) {
+      if (email !== user.email) {
+          await validate.email(email, user.email, true);
+          if (validate.email.error) {
+              setProcessing(true)
+              setValidator({
+                  ...validator,
+                  email: validate.email.error,
+              })
+          }
+      }
+    } else {
+      setValidator({
+        ...validator,
+        email: 'Email cannot be the same as recovery',
+      });
     }
     process();
   }
