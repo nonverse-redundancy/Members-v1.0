@@ -37,7 +37,7 @@ class user {
     this.#reset();
     await this.#csrf();
     await axios
-      .get(`${this.apiurl}protected/user/view/${uuid}`, {})
+      .get(`${this.apiurl}protected/user/${uuid}`, {})
       .then((response) => {
         console.log(response);
         this.firstname = response.data.name_first;
@@ -59,7 +59,7 @@ class user {
   async update(uuid, data) {
     await this.#csrf();
     await axios
-      .post(`${this.apiurl}protected/user/update/${uuid}`, {
+      .post(`${this.apiurl}protected/user/${uuid}`, {
         name: data.name,
         username: data.alias,
         email: data.email,
