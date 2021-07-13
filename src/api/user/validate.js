@@ -28,7 +28,7 @@ class validate {
         return (this.name.error = false);
       }
     }
-    const count = data.split(" ");
+    const count = data.match(/(\w+)/g);
     if (count.length < 2) {
       this.name.error = "First and last names are required";
     } else if (count.length > 2) {
