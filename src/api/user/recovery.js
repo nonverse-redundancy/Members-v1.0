@@ -38,6 +38,26 @@ class recovery {
         //
       });
   }
+
+  // Update user recovery data
+  async update(uuid, data) {
+    await this.#csrf();
+    await axios
+      .post(`${this.recoveryurl}protected/user/${uuid}/recovery`, {
+        email: data.email,
+        phone: data.phone,
+      })
+      .then((response) => {
+        console.log(response);
+        this.update.error = false;
+        this.update.status = 200;
+      })
+      .catch((e) => {
+        console.log(e);
+        this.update.error = "Something Went Wrong";
+        this.update.status = 500;
+      });
+  }
 }
 
 export default new recovery();
