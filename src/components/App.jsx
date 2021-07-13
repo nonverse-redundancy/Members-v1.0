@@ -15,6 +15,7 @@ import "../sass/app.scss";
 import Loader from "./elements/Loader";
 import { DashboardRouter } from "../routers/DashboardRouter";
 import { AccountRouter } from "../routers/AccountRouter";
+import recovery from "../api/user/recovery";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,6 +25,7 @@ function App() {
       await auth.check();
       if (auth.authenticated) {
         await user.get(auth.uuid);
+        await recovery.get(auth.uuid);
         setIsAuthenticated(true);
       } else {
         if (auth.connected) {
