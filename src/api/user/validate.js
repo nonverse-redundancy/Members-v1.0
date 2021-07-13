@@ -38,7 +38,7 @@ class validate {
     }
   }
 
-  async email(data, compare) {
+  async email(data, compare, unique) {
     this.email.error = false;
     if (compare) {
       if (data === compare) {
@@ -47,7 +47,7 @@ class validate {
     }
     await this.#csrf();
     await axios
-      .post(`${this.validatorurl}email`, {
+      .post(`${this.validatorurl}email?${unique ? 'args=unique' : ''}`, {
         email: data,
       })
       .then((response) => {
