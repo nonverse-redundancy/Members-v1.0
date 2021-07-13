@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import user from '../../../api/user/user';
 
 import PersonalSection from './PersonalSection';
+import RecoverySection from './RecoverySection';
 
 const AccountContainer = () => {
 
@@ -16,9 +17,7 @@ const AccountContainer = () => {
                 <div className="sec">
                     <h1>Security</h1>
                 </div>
-                <div className="sec">
-                    <h1>Recovery</h1>
-                </div>
+                <RecoverySection />
                 <div className="sec">
                     
                 </div>
