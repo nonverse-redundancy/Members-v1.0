@@ -14,7 +14,7 @@ const PersonalSection = () => {
   const [userData, setUserData] = useState({});
   const [error, setError] = useState(false);
   const [done, setDone] = useState(false);
-  const [validator, setValidator] = useState(false);
+  const [validator, setValidator] = useState({});
 
   async function process() {
     await validate.email(userData.email, user.email)
@@ -24,7 +24,7 @@ const PersonalSection = () => {
     }
   }
   
-  async function editHander() {
+  async function editHandler() {
     if (isEdit) {
       setProcessing(true);
 
@@ -80,7 +80,7 @@ const PersonalSection = () => {
       email: false,
     });
     if (email !== user.email) {
-        await validate.email(email, user.email);
+        await validate.email(email, user.email, true);
         if (validate.email.error) {
             setProcessing(true)
             setValidator({
@@ -156,7 +156,7 @@ const PersonalSection = () => {
             </div>
         </div>
         <a className={`edit ${processing ? 'isload' : ''}`} 
-           onClick={processing ? console.log('Processing') : () => {editHander()}}>{isEdit ? 'Save' : 'Edit'}
+           onClick={processing ? console.log('Processing') : () => {editHandler()}}>{isEdit ? 'Save' : 'Edit'}
         </a>
     </div>
     )
