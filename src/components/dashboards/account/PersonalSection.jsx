@@ -17,7 +17,7 @@ const PersonalSection = () => {
   const [validator, setValidator] = useState({});
 
   async function process() {
-    await validate.email(userData.email, user.email)
+    await validate.email(userData.email, user.email, true)
     await validate.name(userData.name, user.name)
     if (!validate.error()) {
       setProcessing(false);
