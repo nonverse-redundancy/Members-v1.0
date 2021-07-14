@@ -84,7 +84,7 @@ class validate {
       .then((response) => {
         switch (response.data) {
           case "The phone field is required.":
-            this.phone.error = "A phone number is required";
+            this.phone.error = false;
             break;
           case "The phone format is invalid.":
             this.phone.error = "Phone number is invalid";
