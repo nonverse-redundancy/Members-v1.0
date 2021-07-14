@@ -120,6 +120,7 @@ const RecoverySection = () => {
   return (
     <div className="a-sec sec-recovery">
       <h1>Recovery</h1>
+      <p className="deep-warn">The following contact information will be used to help recovery your account in the scenario that you do not have access to your primary email and phone</p>
       {error ? <span className="danger">{error}</span> : ''}
       {done ? <span className="success">Account Updated</span> : ''}
       {validator.email ? <span className="danger">{validator.email}</span> : ''}
