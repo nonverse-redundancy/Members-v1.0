@@ -18,7 +18,7 @@ const SecuritySection = () => {
           <div className="r">
               <div className="t">
                   <h4 className="i danger">Disabled</h4>
-                  <button className="i splash">Enable 2FA</button>
+                  <button className="i splash tfa">Enable 2FA</button>
               </div>
               <div className="b">
                 <h4 className="i success">Enabled</h4>
