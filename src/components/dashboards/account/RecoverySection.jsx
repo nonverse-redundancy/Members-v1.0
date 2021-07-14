@@ -46,10 +46,22 @@ const RecoverySection = () => {
     } else {
       setError(false);
       setDone(false);
-      setRecoveryData({
-        email: recovery.email,
-        phone: recovery.phone,
-      });
+      if (!recovery.email) {
+        setRecoveryData({
+          email: "",
+          phone: recovery.phone,
+        });
+      } else if (!recovery.phone) {
+        setRecoveryData({
+          email: recovery.email,
+          phone: "",
+        });
+      } else {
+        setRecoveryData({
+          email: recovery.email,
+          phone: recovery.phone,
+        });
+      }
     }
     setIsEdit(!isEdit);
   }
@@ -80,12 +92,39 @@ const RecoverySection = () => {
     process();
   }
 
+  var typeTimerPhone;
+  async function phoneHandler(phone) {
+    setValidator({
+      ...validator,
+      phone: false,
+    });
+    if (phone !== "") {
+      if (phone !== recovery.phone) {
+        await validate.phone(phone, recovery.phone);
+        if (validate.phone.error) {
+          setProcessing(true);
+          setValidator({
+            ...validator,
+            phone: validate.phone.error,
+          })
+        }
+      }
+    } else {
+      setValidator({
+        ...validator,
+        phone: "A recovery phone number is recommended"
+      })
+    }
+    process();
+  }
+
   return (
     <div className="a-sec sec-recovery">
       <h1>Recovery</h1>
       {error ? <span className="danger">{error}</span> : ''}
       {done ? <span className="success">Account Updated</span> : ''}
       {validator.email ? <span className="danger">{validator.email}</span> : ''}
+      {validator.phone ? <span className="danger">{validator.phone}</span> : ''}
       <div className="info">
         <div className="l">
           <h4 className="i">Recovery Email</h4>
@@ -93,7 +132,8 @@ const RecoverySection = () => {
         </div>
         <div className="r">
           <form action="" className={`out ${isEdit? 'isedit' : ''}`}>
-            {isEdit ? <input type="text" className="i" value={recoveryData.email}
+            {isEdit ? <input type="text" className="i" value={recoveryData.email} placeholder="Enter recovery email"
+            readOnly={!isEdit}
             onChange={(e) => {
               setRecoveryData({
                 ...recovery,
@@ -110,10 +150,27 @@ const RecoverySection = () => {
                 }, 500)
             }}
             />
-            :<input className={`i ${recovery.email ? '' : 'danger'}`} value={recovery.email ? recovery.email : 'Recovery Email Not Set'}/>
+            :<input className={`i ${recovery.email ? '' : 'danger'}`} value={recovery.email ? recovery.email : 'Recovery Email Not Set'} readOnly={!isEdit}/>
             }
-            {isEdit ? <input type="text" className="i" value={recoveryData.phone}/>
-            :<input className={`i ${recovery.phone ? '' : 'danger'}`} value={recovery.phone ? recovery.phone : 'Recovery Phone Not Set'}/>
+            {isEdit ? <input type="text" className="i" value={recoveryData.phone} placeholder="Enter recovery phone"
+            readOnly={!isEdit}
+            onChange={(e) => {
+              setRecoveryData({
+                ...recoveryData,
+                phone: e.target.value,
+              })
+            }}
+            onKeyDown={() => {
+              clearTimeout(typeTimerPhone);
+            }}
+            onKeyUp={(e) => {
+              clearTimeout(typeTimerPhone);
+              typeTimerPhone = setTimeout(() => {
+                phoneHandler(e.target.value);
+              }, 500)
+            }}
+            />
+            :<input className={`i ${recovery.phone ? '' : 'danger'}`} value={recovery.phone ? recovery.phone : 'Recovery Phone Not Set'} readOnly={!isEdit}/>
             }
           </form>
         </div>
