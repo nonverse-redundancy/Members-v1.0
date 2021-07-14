@@ -13,7 +13,6 @@
     position: relative;
     //background-color: aqua;
     //border: 3px solid #333;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -51,7 +50,13 @@
         }
       }
       .l {
-        background-color: $main; // Just to avoid warnings
+        //background-color: palevioletred;
+        p {
+          font-size: 16px;
+          color: $main-dark;
+          opacity: 70%;
+          max-width: 95%;
+        }
       }
       .r {
         //background-color: rebeccapurple;
@@ -90,6 +95,24 @@
   .sec-recovery {
     .info {
       grid-template-columns: 30% 70%;
+    }
+  }
+  .sec-security {
+    .info {
+      //background-color: palevioletred;
+      height: 55%;
+      grid-template-columns: 60% 40%;
+      .l {
+        //border: 2px solid black;
+        display: grid;
+        grid-template-rows: 55% 45%;
+
+      }
+      .r {
+        //border: 2px solid black;
+        display: grid;
+        grid-template-rows: 55% 45%;
+      }
     }
   }
 }
