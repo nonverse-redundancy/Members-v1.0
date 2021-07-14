@@ -15,7 +15,7 @@ class validate {
   }
 
   error() {
-    if (this.name.error || this.email.error) {
+    if (this.name.error || this.email.error || this.phone.error) {
       return true;
     }
     return false;
@@ -76,6 +76,7 @@ class validate {
         return (this.phone.error = false);
       }
     }
+    await this.#csrf();
     await axios
       .post(`${this.validatorurl}phone`, {
         phone: data,
