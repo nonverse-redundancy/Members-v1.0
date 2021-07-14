@@ -47,7 +47,7 @@ class validate {
     }
     await this.#csrf();
     await axios
-      .post(`${this.validatorurl}email?${unique ? 'args=unique' : ''}`, {
+      .post(`${this.validatorurl}email?${unique ? "args=unique" : ""}`, {
         email: data,
       })
       .then((response) => {
@@ -66,6 +66,35 @@ class validate {
       })
       .catch((e) => {
         this.email.error = "Unable to validate email";
+      });
+  }
+
+  async phone(data, compare) {
+    this.phone.error = false;
+    if (compare) {
+      if (data === compare) {
+        return (this.phone.error = false);
+      }
+    }
+    await axios
+      .post(`${this.validatorurl}phone`, {
+        phone: data,
+      })
+      .then((response) => {
+        switch (response.data) {
+          case "The phone field is required.":
+            this.phone.error = "A phone number is required";
+            break;
+          case "The phone format is invalid.":
+            this.phone.error = "Phone number is invalid";
+            break;
+          case "The phone must be at least 10 characters.":
+            this.phone.error = "Phone number is invalid";
+            break;
+        }
+      })
+      .catch((e) => {
+        this.phone.error = "Unable to validate phone number";
       });
   }
 }
