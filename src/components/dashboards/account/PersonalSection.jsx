@@ -1,4 +1,3 @@
-import React, { useReducer } from "react";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
@@ -163,9 +162,9 @@ const PersonalSection = () => {
                 </form>
             </div>
         </div>
-        <a className={`edit ${processing ? 'isload' : ''}`} 
+        <button className={`edit ${processing ? 'isload' : ''}`} 
            onClick={processing ? console.log('Processing') : () => {editHandler()}}>{isEdit ? 'Save' : 'Edit'}
-        </a>
+        </button>
     </div>
     )
 };

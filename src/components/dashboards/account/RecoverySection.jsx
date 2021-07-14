@@ -175,9 +175,9 @@ const RecoverySection = () => {
           </form>
         </div>
       </div>
-        <a className={`edit ${processing ? 'isload' : ''}`} 
+        <button className={`edit ${processing ? 'isload' : ''}`} 
            onClick={processing ? console.log('Processing') : () => {editHandler()}}>{isEdit ? 'Save' : 'Edit'}
-        </a>
+        </button>
     </div>
   );
 };

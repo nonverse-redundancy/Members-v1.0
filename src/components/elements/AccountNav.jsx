@@ -29,7 +29,7 @@ const AccountNav = () => {
             Support
           </NavLink>
         </div>
-        <a className="logout" onClick={() => {auth.logout()}}>Logout</a>
+        <button className="logout" onClick={() => {auth.logout()}}>Logout</button>
       </div>
     </div>
   );

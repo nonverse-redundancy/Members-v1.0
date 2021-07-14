@@ -15,6 +15,14 @@
     }
 }
 
+button {
+    border: none;
+    background-color: transparent;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 // Specific
 .logout-btn {
     background-color: orangered;
