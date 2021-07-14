@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 
 import user from '../../api/user/user';
 import calendar from '../../scripts/calendar';

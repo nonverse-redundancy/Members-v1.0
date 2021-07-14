@@ -1,15 +1,11 @@
 // React
 import React from "react";
-import { useHistory } from "react-router-dom";
-import auth from "../../api/auth/auth"; // Temporary auth import
 
 import nvlogo from "../../assets/svg/nvlogo.svg";
 
 // Components
 
 const SidePanel = () => {
-
-  const history = useHistory();
 
   return (
     <div className="nav-cont">

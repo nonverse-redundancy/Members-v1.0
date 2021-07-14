@@ -1,9 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 
 const HomeButton = () => {
-
-    const history = useHistory();
 
     function viewHome() {
         window.location.replace('/')

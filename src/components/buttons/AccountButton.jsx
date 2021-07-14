@@ -1,10 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router";
 
 import user from "../../api/user/user";
 
 const AccountButton = () => {
-  const history = useHistory();
 
   function viewAccount() {
     window.location.replace("/account");
