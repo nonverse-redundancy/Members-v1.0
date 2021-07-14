@@ -4,7 +4,7 @@
   height: 75%;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 57.5% 42.5%;
+  grid-template-rows: 58.5% 41.5%;
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -48,7 +48,7 @@
         //background-color: blueviolet;
         color: $main-dark;
         font-size: 20px;
-        padding: 0.75rem 0;
+        padding: 0.7rem 0;
         margin: 0;
       }
       .verified {
