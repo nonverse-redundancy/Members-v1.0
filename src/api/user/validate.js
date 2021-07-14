@@ -61,6 +61,7 @@ class validate {
           case "The email has already been taken.":
             this.email.error = "This email is taken";
             break;
+          default:
         }
         console.log(this.email.error);
       })
@@ -92,6 +93,7 @@ class validate {
           case "The phone must be at least 10 characters.":
             this.phone.error = "Phone number is invalid";
             break;
+          default:
         }
       })
       .catch((e) => {
