@@ -31,7 +31,7 @@ const SecuritySection = () => {
           </div>
       </div>
       <div className="tfa">
-        {isViewTFA ? <TwoFactorPopup /> : ''}
+        {isViewTFA ? <TwoFactorPopup close={setIsViewTFA}/> : ''}
       </div>
     </div>
   );

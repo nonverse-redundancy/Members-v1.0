@@ -1,11 +1,10 @@
 import React from "react";
 import ScreenPopup from "../../elements/ScreenPopup";
-import Loader from "../../elements/Loader";
 import { ClipLoader } from "react-spinners";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const TwoFactorPopup = () => {
+const TwoFactorPopup = ( { close } ) => {
   const [loading, setLoading] = useState(true);
 
 
@@ -16,7 +15,7 @@ const TwoFactorPopup = () => {
   }, [])
 
   return (
-    <ScreenPopup>
+    <ScreenPopup close={close}>
       {loading ? (
           <div className="await">
               <div className="loader">

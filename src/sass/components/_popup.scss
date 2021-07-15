@@ -16,6 +16,11 @@
         min-width: 30%;
         min-height: 35%;
         box-shadow: 5px 0 35px 0 $main-mid;
+        .close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+        }
         .await {
             //background-color: teal;
             position: absolute;
@@ -35,8 +40,8 @@
             padding: 0;
             .head {
                 position: absolute;
-                margin-top: 8%;
-                margin-left: 8%;
+                margin-top: 1.5rem;
+                margin-left: 1.5rem;
                 font-size: 24px;
                 width: 20vw;
             }
@@ -91,8 +96,8 @@
     }
     button {
         position: absolute;
-        bottom: 8%;
-        right: 5%;
+        bottom: 1.5rem;
+        right: 1.5rem;
         font-size: 18px;
         color: $main-splash;
     }
