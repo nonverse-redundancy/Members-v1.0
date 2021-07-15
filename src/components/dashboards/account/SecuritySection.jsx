@@ -1,6 +1,11 @@
 import React from "react";
+import { useState } from "react";
+import TwoFactorPopup from "./TwoFactorPopup";
 
 const SecuritySection = () => {
+
+  const [isViewTFA, setIsViewTFA] = useState(false);
+
   return (
     <div className="a-sec sec-security">
       <h1>Security</h1>
@@ -18,12 +23,15 @@ const SecuritySection = () => {
           <div className="r">
               <div className="t">
                   <h4 className="i danger">Disabled</h4>
-                  <button className="i splash tfa">Enable 2FA</button>
+                  <button className="i splash tfa" onClick={() => {setIsViewTFA(true)}}>Enable 2FA</button>
               </div>
               <div className="b">
                 <h4 className="i success">Enabled</h4>
               </div>
           </div>
+      </div>
+      <div className="tfa">
+        {isViewTFA ? <TwoFactorPopup /> : ''}
       </div>
     </div>
   );
