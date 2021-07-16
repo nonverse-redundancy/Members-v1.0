@@ -21,6 +21,7 @@
             top: 1.5rem;
             right: 1.5rem;
             cursor: pointer;
+            z-index: 50;
         }
         .await {
             //background-color: teal;
@@ -63,30 +64,42 @@
         width: 50vw;
         padding-top: 8%;
         justify-content: center;
+        input {
+            height: 40px;
+            width: 150px;
+            border: none;
+            outline: none;
+            background-color: $main-mid;
+            text-align: center;
+            font-size: 20px;
+            color: $main-dark;
+        }
         .qr {
             background-color: rosybrown;
             height: 175px;
             width: 175px;
+            svg {
+                height: 100%;
+                width: 100%;
+            }
+            .toggle-code {
+                margin-top: 3%;
+                width: 100%;
+            }
         }
         .out {
             //background-color: teal;
-            margin-left: 2rem;
-            input {
-                height: 40px;
-                width: 150px;
-                border: none;
-                outline: none;
-                background-color: $main-mid;
-                text-align: center;
-                font-size: 20px;
-                color: $main-dark;
+            h1 {
+                margin-top: 1rem;
             }
+            margin-left: 2rem;
             ul {
                 list-style-type: nth;
                 margin-top: 1rem;
                 color: $main-splash;
                 li {
                     font-size: 18px;
+                    max-width: max-content;
                 }
                 .suggested {
                     display: flex;
@@ -94,8 +107,43 @@
                 }
             }
         }
+        .toggle-code {
+            margin-top: 1%;
+            width: max-content;
+            color: $main-splash;
+        }
     }
-    button {
+    .layout-code {
+        margin-top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        padding-top: 8%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .code {
+            margin-top: 2%;
+            font-size: 30px;
+            color: $main-dark;
+        }
+        input {
+            margin-top: 2%;
+        }
+        .out {
+            margin: 0;
+            span {
+                font-size: 18px;
+            }
+        }
+        .suggested {
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+    .verify {
         position: absolute;
         bottom: 1.5rem;
         right: 1.5rem;
