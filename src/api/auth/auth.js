@@ -43,7 +43,9 @@ class auth {
       .get(`${this.authurl}session/user/current`, {})
       .then((response) => {
         this.connected = true;
-        this.authenticated = true;
+        if (response.data.uuid) {
+          this.authenticated = true;
+        }
         this.uuid = response.data.uuid;
         console.log(this.uuid);
       })
