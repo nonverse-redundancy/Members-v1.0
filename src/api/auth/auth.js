@@ -17,7 +17,7 @@ class auth {
     axios.defaults.withCredentials = true;
   }
 
-  async #csrf() {
+  async _csrf() {
     await axios.get(`${this.authurl}sanctum/csrf-cookie`)
   }
 
@@ -38,7 +38,7 @@ class auth {
   // Check if a user is authenticated in active session
   async check() {
     this.#reset();
-    await this.#csrf();
+    await this._csrf();
     await axios
       .get(`${this.authurl}session/user/current`, {})
       .then((response) => {
@@ -61,7 +61,7 @@ class auth {
 
   // Remove user's authentication from session
   async logout() {
-    await this.#csrf();
+    await this._csrf();
     await axios
       .post(`${this.authurl}session/user/logout`, {})
       .then((response) => {
