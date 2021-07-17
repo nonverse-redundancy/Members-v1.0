@@ -13,9 +13,9 @@ const TwoFactorPopup = ( { close } ) => {
   const [showCode, setShowCode] = useState(false);
 
   async function generateCode() {
-    await twofactor.enable()
+    await twofactor.setup()
     .then(() => {
-      setTwoFactorURL(twofactor.enable.url);
+      setTwoFactorURL(twofactor.setup.url);
       console.log(twoFactorURL);
     });
     setLoading(false);
@@ -41,7 +41,7 @@ const TwoFactorPopup = ( { close } ) => {
             {showCode ? (
               <div className="layout layout-code">
               <input type="text" placeholder="Code" />
-                <h1 className="code">{twofactor.enable.code}</h1>
+                <h1 className="code">{twofactor.setup.code}</h1>
                 <div className="out">
                   <span className="splash">1. <span className="default">Enter above code into authenticator app of choice</span><br/></span>
                       <div className="suggested">

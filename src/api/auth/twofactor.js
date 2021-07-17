@@ -8,13 +8,13 @@ class twofactor {
     axios.defaults.withCredentials = true;
   }
 
-  async enable() {
+  async setup() {
     await auth._csrf;
     await axios
       .get(`${auth.authurl}user/${auth.uuid}/two-factor-url`, {})
       .then((response) => {
-        this.enable.url = response.data.url;
-        this.enable.code = response.data.code;
+        this.setup.url = response.data.url;
+        this.setup.code = response.data.code;
       })
       .catch((e) => {
         //
