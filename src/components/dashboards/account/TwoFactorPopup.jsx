@@ -11,6 +11,8 @@ const TwoFactorPopup = ( { close } ) => {
   const [loading, setLoading] = useState(true);
   const [twoFactorURL, setTwoFactorURL] = useState(false);
   const [showCode, setShowCode] = useState(false);
+  const [oneTimePassword, setOneTimePassword] = useState(false);
+  const [error, setError] = useState(false);
 
   async function generateCode() {
     await twofactor.setup()
@@ -19,6 +21,19 @@ const TwoFactorPopup = ( { close } ) => {
       console.log(twoFactorURL);
     });
     setLoading(false);
+  }
+
+  async function enableTwoFactor() {
+    setLoading(true);
+    await twofactor.enable(oneTimePassword)
+    if (twofactor.enable.success) {
+      setError(false);
+      setLoading(false);
+      close();
+    } else {
+      setError(true);
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -40,7 +55,12 @@ const TwoFactorPopup = ( { close } ) => {
             <h1 className="head">Enable 2 Factor Authentication</h1>
             {showCode ? (
               <div className="layout layout-code">
-              <input type="text" placeholder="Code" />
+              <input type="text" placeholder="Code" 
+              onChange={(e) => {
+                setOneTimePassword(e.target.value)
+                setError(false);
+              }} />
+              <span className="danger"><br />{error ? 'Test' : ''}</span>
                 <h1 className="code">{twofactor.setup.code}</h1>
                 <div className="out">
                   <span className="splash">1. <span className="default">Enter above code into authenticator app of choice</span><br/></span>
@@ -59,7 +79,12 @@ const TwoFactorPopup = ( { close } ) => {
                   <button className="toggle-code" onClick={() => {setShowCode(!showCode)}}>Can't Scan?</button>
                 </div>
                 <div className="out">
-                  <input type="text" placeholder="Code" />
+                  <input type="text" placeholder="Code" 
+                  onChange={(e) => {
+                    setOneTimePassword(e.target.value)
+                    setError(false);
+                  }} />
+                  <span className="danger"><br />{error ? 'Invalid Code' : ''}</span>
                     <ul>
                       <li><span className="default">Scan QR code using authenticator app of choice</span></li>
                       <div className="suggested">
@@ -72,7 +97,7 @@ const TwoFactorPopup = ( { close } ) => {
               </div>
             )}
           </div>
-          <button className="verify">Verify</button>
+          <button className="verify" onClick={() => enableTwoFactor()}>Verify</button>
         </div>
       )}
     </ScreenPopup>
