@@ -1,13 +1,13 @@
 import React from "react";
-import ScreenPopup from "../../elements/ScreenPopup";
+import Modal from "./Modal";
 import { ClipLoader } from "react-spinners";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import twofactor from "../../../api/auth/twofactor";
+import twofactor from "../../api/auth/twofactor";
 import QRCode from "qrcode.react";
 
-const TwoFactorPopup = ( { close } ) => {
+const TwoFactorEnableModal = ( { close } ) => {
   const [loading, setLoading] = useState(true);
   const [twoFactorURL, setTwoFactorURL] = useState(false);
   const [showCode, setShowCode] = useState(false);
@@ -42,7 +42,7 @@ const TwoFactorPopup = ( { close } ) => {
   
 
   return (
-    <ScreenPopup close={close}>
+    <Modal close={close}>
       {loading ? (
           <div className="await">
               <div className="loader">
@@ -100,8 +100,8 @@ const TwoFactorPopup = ( { close } ) => {
           <button className="verify" onClick={() => enableTwoFactor()}>Verify</button>
         </div>
       )}
-    </ScreenPopup>
+    </Modal>
   );
 };
 
-export default TwoFactorPopup;
+export default TwoFactorEnableModal;

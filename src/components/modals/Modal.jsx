@@ -1,6 +1,6 @@
 import React from "react";
 
-const ScreenPopup = ({ children, close }) => {
+const Modal = ({ children, close }) => {
   return (
     <div className="popup-cont">
       <div className="popup screen-popup">
@@ -14,4 +14,4 @@ const ScreenPopup = ({ children, close }) => {
   );
 };
 
-export default ScreenPopup;
+export default Modal;
