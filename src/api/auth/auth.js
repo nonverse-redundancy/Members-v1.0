@@ -12,13 +12,14 @@ class auth {
     this.connected = false; // Was connection to SecureAuth successful?
     this.authenticated = false; // Is a user authenticated in session?
     this.uuid = false; // UUID of current authenticated user
+    this.tfa = false; // Does the user have 2FA enabled?
 
     // Config
     axios.defaults.withCredentials = true;
   }
 
   async _csrf() {
-    await axios.get(`${this.authurl}sanctum/csrf-cookie`)
+    await axios.get(`${this.authurl}sanctum/csrf-cookie`);
   }
 
   // Reset auth variables
@@ -32,7 +33,9 @@ class auth {
     this.#reset();
     const host = window.location.hostname;
     const path = window.location.pathname.substr(1);
-    window.location.replace(`${this.authurl}login?continue=${host}&resource=${path}`);
+    window.location.replace(
+      `${this.authurl}login?continue=${host}&resource=${path}`
+    );
   }
 
   // Check if a user is authenticated in active session
@@ -47,6 +50,7 @@ class auth {
           this.authenticated = true;
         }
         this.uuid = response.data.uuid;
+        this.tfa = response.data.usetotp;
         console.log(this.uuid);
       })
       .catch((e) => {
