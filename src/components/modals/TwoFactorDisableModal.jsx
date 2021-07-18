@@ -58,7 +58,8 @@ const TwoFactorDisableModal = ({ setTFA, close }) => {
                 Enter your password to confirm your identity
                 <br />
               </span>
-              <input type="text" name="password" placeholder="Password" 
+              <span className="danger">{error ? 'Incorrect Password' : ''}</span>
+              <input type="password" name="password" placeholder="Password" 
               onChange={(e) => {
                   setPassword(e.target.value);
               }} />
