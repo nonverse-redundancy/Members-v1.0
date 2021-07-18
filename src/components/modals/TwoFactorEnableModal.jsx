@@ -32,11 +32,11 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
     await twofactor.enable(oneTimePassword)
     if (twofactor.enable.success) {
       setError(false);
-      setLoading(false);
       await auth.check();
       if (auth.tfa) {
         setTFA(true)
       }
+      setLoading(false);
       close();
     } else {
       setError(true);
