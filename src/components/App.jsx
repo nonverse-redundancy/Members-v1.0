@@ -24,8 +24,8 @@ function App() {
     async function authenticate() {
       await auth.check();
       if (auth.authenticated) {
-        await user.get(auth.uuid);
-        await recovery.get(auth.uuid);
+        await user.get();
+        await recovery.get();
         setIsAuthenticated(true);
       } else {
         if (auth.connected) {
