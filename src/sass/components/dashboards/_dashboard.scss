@@ -26,6 +26,14 @@
     //background-color: blanchedalmond;
     width: 93%;
     height: 91%;
+    .head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .float {
+            font-size: 18px;
+        }
+    }
     h1 {
         color: $main-dark;
     }
