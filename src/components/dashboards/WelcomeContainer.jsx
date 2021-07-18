@@ -1,18 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import user from '../../api/user/user';
-import calendar from '../../scripts/calendar';
+import user from "../../api/user/user";
+import calendar from "../../scripts/calendar";
+import VerifiedFloat from "./account/VerifiedFloat";
 
 const WelcomeContainer = () => {
+  document.title = "Nonverse | Home";
 
-    document.title = 'Nonverse | Home'
+  return (
+    <div className="dashboard dash-welcome">
+      <div className="head">
+        <h1>Welcome back {user.firstname}</h1>
+        <VerifiedFloat />
+      </div>
+      <h2>Its {calendar.today("named-noyear")}</h2>
+    </div>
+  );
+};
 
-    return (
-        <div className="dashboard dash-welcome">
-            <h1>Welcome back {user.firstname}</h1>
-            <h2>Its {calendar.today('named-noyear')}</h2>
-        </div>
-    )
-}
-
-export default WelcomeContainer
+export default WelcomeContainer;
