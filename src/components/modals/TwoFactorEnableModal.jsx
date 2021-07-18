@@ -10,6 +10,9 @@ import { useHistory } from "react-router-dom";
 import auth from "../../api/auth/auth";
 
 const TwoFactorEnableModal = ( { setTFA, close } ) => {
+
+  let mounted = false;
+
   const [loading, setLoading] = useState(true);
   const [twoFactorURL, setTwoFactorURL] = useState(false);
   const [showCode, setShowCode] = useState(false);
@@ -21,10 +24,14 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
   async function generateCode() {
     await twofactor.setup()
     .then(() => {
-      setTwoFactorURL(twofactor.setup.url);
+      if (mounted) {
+        setTwoFactorURL(twofactor.setup.url);
+      }
       console.log(twoFactorURL);
     });
-    setLoading(false);
+    if (mounted) {
+      setLoading(false);
+    }
   }
 
   async function enableTwoFactor() {
@@ -45,9 +52,14 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
   }
 
   useEffect(() => {
+    mounted = true;
+
     generateCode();
+
+    return () => {
+      mounted = false;
+    }
   })
-  
 
   return (
     <Modal close={close}>
