@@ -70,7 +70,7 @@ const TwoFactorDisableModal = ({ setTFA, close }) => {
               </span>
             </div>
           </div>
-          <button className="verify" onClick={() => disableTwoFactor()}>Disable</button>
+          <button className="verify" onClick={() => {disableTwoFactor()}}>Disable</button>
         </div>
       )}
     </Modal>
