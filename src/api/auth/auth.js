@@ -13,6 +13,7 @@ class auth {
     this.authenticated = false; // Is a user authenticated in session?
     this.uuid = false; // UUID of current authenticated user
     this.tfa = false; // Does the user have 2FA enabled?
+    this.verified = false; // Has the owner verified their account?
 
     // Config
     axios.defaults.withCredentials = true;
