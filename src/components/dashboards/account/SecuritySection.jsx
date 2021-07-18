@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useState } from "react";
 import TwoFactorEnableModal from "../../modals/TwoFactorEnableModal";
 
@@ -37,7 +36,7 @@ const SecuritySection = () => {
       <div className="tfa">
         {isViewTFA ? 
         <div>
-          {auth.tfa 
+          {TFA
           ? <TwoFactorDisableModal setTFA={setTFA} close={setIsViewTFA}/> 
           : <TwoFactorEnableModal setTFA={setTFA} close={setIsViewTFA}/>
           }
