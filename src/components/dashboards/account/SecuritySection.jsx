@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import TwoFactorEnableModal from "../../modals/TwoFactorEnableModal";
 
@@ -8,7 +8,8 @@ import TwoFactorDisableModal from "../../modals/TwoFactorDisableModal";
 const SecuritySection = () => {
 
   const [isViewTFA, setIsViewTFA] = useState(false);
-
+  const [TFA, setTFA] = useState(auth.tfa);
+  
   return (
     <div className="a-sec sec-security">
       <h1>Security</h1>
@@ -25,8 +26,8 @@ const SecuritySection = () => {
           </div>
           <div className="r">
               <div className="t">
-                  <h4 className={`i ${auth.tfa ? 'success' : 'danger'}`}>{auth.tfa ? 'Enabled' : 'Disabled'}</h4>
-                  <button className="i splash tfa" onClick={() => {setIsViewTFA(true)}}>{auth.tfa ? 'Disable 2FA' : 'Enable 2FA'}</button>
+                  <h4 className={`i ${TFA ? 'success' : 'danger'}`}>{TFA ? 'Enabled' : 'Disabled'}</h4>
+                  <button className="i splash tfa" onClick={() => {setIsViewTFA(true)}}>{TFA ? 'Disable 2FA' : 'Enable 2FA'}</button>
               </div>
               <div className="b">
                 <h4 className="i success">Enabled</h4>
@@ -37,8 +38,8 @@ const SecuritySection = () => {
         {isViewTFA ? 
         <div>
           {auth.tfa 
-          ? <TwoFactorDisableModal close={setIsViewTFA}/> 
-          : <TwoFactorEnableModal close={setIsViewTFA}/>
+          ? <TwoFactorDisableModal setTFA={setTFA} close={setIsViewTFA}/> 
+          : <TwoFactorEnableModal setTFA={setTFA} close={setIsViewTFA}/>
           }
         </div> 
         : ''}
