@@ -41,7 +41,7 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
       setError(false);
       await auth.check();
       if (auth.tfa) {
-        setTFA(true)
+        setTFA(auth.tfa)
       }
       setLoading(false);
       close();
