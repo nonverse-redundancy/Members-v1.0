@@ -65,7 +65,7 @@ const TwoFactorDisableModal = ({ setTFA, close }) => {
               }} />
               <span className="danger warn">
                 Disabling 2 Factor Authentication will no longer require you to
-                verify each login.This could your account more accessible to
+                verify each login. This could make your account more accessible to
                 attackers
               </span>
             </div>
