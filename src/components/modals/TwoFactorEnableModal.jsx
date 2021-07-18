@@ -10,26 +10,11 @@ import auth from "../../api/auth/auth";
 
 const TwoFactorEnableModal = ( { setTFA, close } ) => {
 
-  let mounted = false;
-
   const [loading, setLoading] = useState(true);
   const [twoFactorURL, setTwoFactorURL] = useState(false);
   const [showCode, setShowCode] = useState(false);
   const [oneTimePassword, setOneTimePassword] = useState(false);
   const [error, setError] = useState(false);
-
-  async function generateCode() {
-    await twofactor.setup()
-    .then(() => {
-      if (mounted) {
-        setTwoFactorURL(twofactor.setup.url);
-      }
-      console.log(twoFactorURL);
-    });
-    if (mounted) {
-      setLoading(false);
-    }
-  }
 
   async function enableTwoFactor() {
     setLoading(true);
@@ -47,14 +32,26 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
   }
 
   useEffect(() => {
-    mounted = true;
 
+    let mounted = true;
+    async function generateCode() {
+      await twofactor.setup()
+      .then(() => {
+        if (mounted) {
+          setTwoFactorURL(twofactor.setup.url);
+        }
+        console.log(twoFactorURL);
+      });
+      if (mounted) {
+        setLoading(false);
+      }
+    }
     generateCode();
 
     return () => {
       mounted = false;
     }
-  })
+  }, [twoFactorURL])
 
   return (
     <Modal close={close}>
