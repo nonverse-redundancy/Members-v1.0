@@ -143,6 +143,15 @@
             }
         }
     }
+    .tfa-disable {
+        .link {
+            margin-top: 1rem;
+        }
+        .warn {
+            margin-top: 1rem;
+            width: 65%;
+        }
+    }
     .verify {
         position: absolute;
         bottom: 1.5rem;
