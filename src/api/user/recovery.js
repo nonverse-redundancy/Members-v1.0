@@ -25,11 +25,11 @@ class recovery {
   }
 
   // Get user recovery data
-  async get(uuid) {
+  async get() {
     this.#reset();
     await this.#csrf();
     await axios
-      .get(`${this.recoveryurl}protected/user/${uuid}/recovery`)
+      .get(`${this.recoveryurl}user/recovery/contact`)
       .then((response) => {
         this.email = response.data.email;
         this.phone = response.data.phone;
@@ -43,7 +43,7 @@ class recovery {
   async update(uuid, data) {
     await this.#csrf();
     await axios
-      .post(`${this.recoveryurl}protected/user/${uuid}/recovery`, {
+      .post(`${this.recoveryurl}user/recovery/contact`, {
         email: data.email,
         phone: data.phone,
       })

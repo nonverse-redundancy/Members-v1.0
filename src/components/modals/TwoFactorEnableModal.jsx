@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 import twofactor from "../../api/auth/twofactor";
 import QRCode from "qrcode.react";
+import { useHistory } from "react-router-dom";
 
 const TwoFactorEnableModal = ( { close } ) => {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,8 @@ const TwoFactorEnableModal = ( { close } ) => {
   const [showCode, setShowCode] = useState(false);
   const [oneTimePassword, setOneTimePassword] = useState(false);
   const [error, setError] = useState(false);
+
+  const history = useHistory();
 
   async function generateCode() {
     await twofactor.setup()
@@ -38,7 +41,7 @@ const TwoFactorEnableModal = ( { close } ) => {
 
   useEffect(() => {
     generateCode();
-  }, [])
+  })
   
 
   return (

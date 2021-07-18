@@ -15,7 +15,7 @@ class twofactor {
   async setup() {
     await auth._csrf();
     await axios
-      .get(`${auth.authurl}user/${auth.uuid}/two-factor-setup`, {})
+      .get(`${auth.authurl}session/user/two-factor-setup`, {})
       .then((response) => {
         this.setup.url = response.data.url;
         this.setup.code = response.data.code;
@@ -28,7 +28,7 @@ class twofactor {
   async enable(code) {
     await auth._csrf();
     await axios
-    .post(`${auth.authurl}user/${auth.uuid}/two-factor-setup`, {
+    .post(`${auth.authurl}session/user/two-factor-setup`, {
       uuid: auth.uuid,
       one_time_password: code,
     })
