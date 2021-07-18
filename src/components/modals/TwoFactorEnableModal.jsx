@@ -40,9 +40,7 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
     if (twofactor.enable.success) {
       setError(false);
       await auth.check();
-      if (auth.tfa) {
-        setTFA(auth.tfa)
-      }
+      setTFA(auth.tfa);
       setLoading(false);
       close();
     } else {
@@ -80,7 +78,7 @@ const TwoFactorEnableModal = ( { setTFA, close } ) => {
                 setOneTimePassword(e.target.value)
                 setError(false);
               }} />
-              <span className="danger"><br />{error ? 'Test' : ''}</span>
+              <span className="danger"><br />{error ? 'Invalid Code' : ''}</span>
                 <h1 className="code">{twofactor.setup.code}</h1>
                 <div className="out">
                   <span className="splash">1. <span className="default">Enter above code into authenticator app of choice</span><br/></span>
