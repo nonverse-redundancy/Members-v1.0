@@ -163,7 +163,7 @@ const PersonalSection = () => {
             </div>
         </div>
         <button className={`edit ${processing ? 'isload' : ''}`} 
-           onClick={processing ? console.log('Processing') : () => {editHandler()}}>{isEdit ? 'Save' : 'Edit'}
+           onClick={processing ? () => {console.log('Processing')} : () => {editHandler()}}>{isEdit ? 'Save' : 'Edit'}
         </button>
     </div>
     )
