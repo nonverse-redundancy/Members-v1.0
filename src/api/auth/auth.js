@@ -52,7 +52,7 @@ class auth {
         }
         this.uuid = response.data.uuid;
         this.tfa = response.data.usetotp;
-        this.verified = response.data.email_verified_at;
+        this.verified = response.data.verified;
         console.log(this.uuid);
       })
       .catch((e) => {
