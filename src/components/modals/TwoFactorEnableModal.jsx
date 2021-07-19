@@ -48,7 +48,7 @@ const TwoFactorEnableModal = ({ setTFA, close }) => {
     return () => {
       mounted = false;
     };
-  }, [twoFactorURL]);
+  }, []);
 
   return (
     <Modal close={close}>
