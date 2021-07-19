@@ -33,7 +33,6 @@ const TwoFactorEnableModal = ({ setTFA, close }) => {
     let mounted = true;
     async function generateCode() {
       await twofactor.setup();
-      console.log(twofactor.setup.url)
       if (mounted) {
         setLoading(false);
       }
