@@ -10,7 +10,6 @@ import auth from "../../api/auth/auth";
 
 const TwoFactorEnableModal = ({ setTFA, close }) => {
   const [loading, setLoading] = useState(true);
-  const [twoFactorURL, setTwoFactorURL] = useState(false);
   const [showCode, setShowCode] = useState(false);
   const [oneTimePassword, setOneTimePassword] = useState(false);
   const [error, setError] = useState(false);
@@ -33,12 +32,8 @@ const TwoFactorEnableModal = ({ setTFA, close }) => {
   useEffect(() => {
     let mounted = true;
     async function generateCode() {
-      await twofactor.setup().then(() => {
-        if (mounted) {
-          setTwoFactorURL(twofactor.setup.url);
-        }
-        console.log(twoFactorURL);
-      });
+      await twofactor.setup();
+      console.log(twofactor.setup.url)
       if (mounted) {
         setLoading(false);
       }
@@ -124,7 +119,7 @@ const TwoFactorEnableModal = ({ setTFA, close }) => {
                     renderAs={"svg"}
                     bgColor={"#ECF0F3"}
                     fgColor={"#333344"}
-                    value={twoFactorURL}
+                    value={twofactor.setup.url}
                   />
                   <button
                     className="toggle-code"
