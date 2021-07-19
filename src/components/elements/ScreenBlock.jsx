@@ -19,6 +19,8 @@ const ScreenBlock = ({ children, code }) => {
       break;
   }
 
+  document.title = `Nonverse | ${error}`;
+
   return (
     <div className="screen-block-cont">
       <div className="screen-block">
