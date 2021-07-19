@@ -63,7 +63,7 @@ class validate {
             break;
           default:
         }
-        console.log(this.email.error);
+        //console.log(this.email.error);
       })
       .catch((e) => {
         this.email.error = "Unable to validate email";

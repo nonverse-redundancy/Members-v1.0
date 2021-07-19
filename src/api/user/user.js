@@ -39,7 +39,7 @@ class user {
     await axios
       .get(`${this.apiurl}user/store/userdata`, {})
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.firstname = response.data.name_first;
         this.lastname = response.data.name_last;
         this.fullname = `${this.firstname} ${this.lastname}`;
@@ -67,7 +67,7 @@ class user {
         phone: data.phone,
       })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.update.error = false;
         this.update.status = 200;
       })

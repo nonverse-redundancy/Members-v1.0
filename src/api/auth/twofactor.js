@@ -47,7 +47,6 @@ class twofactor {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
         this.disable.success = true;
       })
       .catch((e) => {

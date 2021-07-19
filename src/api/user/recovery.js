@@ -48,7 +48,6 @@ class recovery {
         phone: data.phone,
       })
       .then((response) => {
-        console.log(response);
         this.update.error = false;
         this.update.status = 200;
       })
