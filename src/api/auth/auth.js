@@ -4,7 +4,7 @@ import axios from "axios";
 class auth {
   constructor() {
     // SecureAuth server location
-    this.authurl = "http://auth.nonverse.test/";
+    this.authurl = `http://${process.env.REACT_APP_AUTH_LOCATION}/`;
 
     // URL to direct to after login
 

@@ -3,7 +3,7 @@ import axios from "axios";
 class recovery {
   constructor() {
     // Recovery server location (Should be same as Auth)
-    this.recoveryurl = "http://api.nonverse.test/";
+    this.recoveryurl = `http://${process.env.REACT_APP_API_LOCATION}/`;
 
     // Default recovery variables
     this.connected = false;

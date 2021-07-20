@@ -3,7 +3,7 @@ import axios from "axios";
 class user {
   constructor() {
     // API server location
-    this.apiurl = "http://api.nonverse.test/";
+    this.apiurl = `http://${process.env.REACT_APP_API_LOCATION}/`;
 
     // Default user variable
     this.connected = false; // Was connection to API successful?

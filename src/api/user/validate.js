@@ -3,7 +3,7 @@ import axios from "axios";
 class validate {
   constructor() {
     // API server validator location
-    this.apiurl = "http://api.nonverse.test/";
+    this.apiurl = `http://${process.env.REACT_APP_API_LOCATION}/`;
     this.validatorurl = "http://api.nonverse.test/client/validator/";
 
     // Config
