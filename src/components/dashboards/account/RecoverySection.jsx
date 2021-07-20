@@ -7,7 +7,7 @@ import recovery from "../../../api/user/recovery";
 import user from "../../../api/user/user";
 import validate from "../../../api/user/validate";
 
-const RecoverySection = () => {
+const RecoverySection = ({ setLoad, setComplete }) => {
   const history = useHistory();
 
   const [isEdit, setIsEdit] = useState(false);
@@ -16,6 +16,11 @@ const RecoverySection = () => {
   const [done, setDone] = useState(false);
   const [validator, setValidator] = useState({});
   const [recoveryData, setRecoveryData] = useState({});
+
+  function trigger() {
+    setLoad(0);
+    setComplete(false);
+  }
 
   async function process() {
     await validate.email(recoveryData.email, recovery.email)
@@ -34,6 +39,7 @@ const RecoverySection = () => {
       setError(recovery.update.error)
       if (recovery.update.status === 200) {
         setDone(true);
+        trigger()
         setTimeout(() => {
           setDone(false);
         }, 3000);

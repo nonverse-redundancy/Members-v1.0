@@ -6,7 +6,7 @@ import user from "../../../api/user/user";
 import recovery from "../../../api/user/recovery";
 import validate from "../../../api/user/validate";
 
-const PersonalSection = () => {
+const PersonalSection = ({ setLoad, setComplete }) => {
   const history = useHistory();
 
   const [isEdit, setIsEdit] = useState(false);
@@ -15,6 +15,11 @@ const PersonalSection = () => {
   const [error, setError] = useState(false);
   const [done, setDone] = useState(false);
   const [validator, setValidator] = useState({});
+
+  function trigger() {
+    setLoad(0);
+    setComplete(false);
+  }
 
   async function process() {
     await validate.email(userData.email, user.email, true)
@@ -34,6 +39,7 @@ const PersonalSection = () => {
       setError(user.update.error);
       if (user.update.status === 200) {
         setDone(true);
+        trigger()
         setTimeout(() => {
           setDone(false);
         }, 3000);
