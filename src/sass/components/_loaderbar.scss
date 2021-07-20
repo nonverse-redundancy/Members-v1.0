@@ -1,0 +1,9 @@
+.loader-bar-cont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: $main-splash;
+    box-shadow: 3px 3px 10px 0 #a251ff;
+    transition: 1s ease;
+}
