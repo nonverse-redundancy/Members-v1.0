@@ -11,29 +11,28 @@ import SecuritySection from "./SecuritySection";
 import VerifiedFloat from "./VerifiedFloat";
 
 const AccountContainer = () => {
-
-  const [load, setLoad] = useState(0)
-  const [complete, setComplete] = useState(false)
+  const [load, setLoad] = useState(Math.floor(Math.random() * 100 + 5));
+  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoad(100);
       setTimeout(() => {
-        setComplete(true)
-      }, 1000)
-    }, 1)
-  })
+        setComplete(true);
+      }, 1000);
+    }, 1);
+  });
 
   return (
     <div className="dashboard dash-account">
-    <LoaderBar load={load} complete={complete}/>
+      <LoaderBar load={load} complete={complete} />
       <div className="head">
         <h1>Your Account</h1>
         <VerifiedFloat />
       </div>
       <h2>{user.fullname}</h2>
       <div className="account">
-        <PersonalSection setLoad={setLoad} setComplete={setComplete}/>
+        <PersonalSection setLoad={setLoad} setComplete={setComplete} />
         <SecuritySection />
         <RecoverySection setLoad={setLoad} setComplete={setComplete} />
       </div>

@@ -17,7 +17,7 @@ const PersonalSection = ({ setLoad, setComplete }) => {
   const [validator, setValidator] = useState({});
 
   function trigger() {
-    setLoad(0);
+    setLoad(Math.floor((Math.random() * 100) + 5));
     setComplete(false);
   }
 

@@ -18,7 +18,7 @@ const RecoverySection = ({ setLoad, setComplete }) => {
   const [recoveryData, setRecoveryData] = useState({});
 
   function trigger() {
-    setLoad(0);
+    setLoad(Math.floor((Math.random() * 100) + 5));
     setComplete(false);
   }
 
