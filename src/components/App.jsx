@@ -19,6 +19,7 @@ import recovery from "../api/user/recovery";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [appIsDevelop, setAppIsDevelop] = useState(false);
 
   useEffect(() => {
     async function authenticate() {
@@ -34,6 +35,9 @@ function App() {
       }
     }
     authenticate();
+    if (process.env.REACT_APP_DEPLOYMENT !== 'production') {
+      setAppIsDevelop(true);
+    }
   }, []);
 
   if (isAuthenticated) {
@@ -43,6 +47,7 @@ function App() {
           <Route path="/account" component={AccountRouter} />
           <Route path="/" component={DashboardRouter}/>
         </Switch>
+        <h1 className="app-status">{appIsDevelop ? 'You are using this app in a development environment' : ''}</h1>
       </BrowserRouter>
     );
   } else {
