@@ -13,6 +13,7 @@
 @import './components/screenblock.scss';
 @import './components/nav';
 @import './components/popup';
+@import './components/tile';
 
 @import './components/buttons.scss';
 
@@ -23,4 +24,5 @@
 
 //Dashboard
 @import './components/dashboards/dashboard';
+@import './components/dashboards/welcome';
 @import './components/dashboards/account';

@@ -1,0 +1,26 @@
+.tile {
+    display: block;
+}
+
+.dash-tile-splash {
+    position: relative;
+    background-color: blueviolet;
+    min-width: 20%;
+    width: fit-content;
+    height: 30%;
+    border-radius: 20px;
+    margin-right: 3%;
+    padding: 2%;
+    box-shadow: 3px 3px 20px 0px rgba($color: blueviolet, $alpha: 0.5);
+    h3 {
+        font-size: 22px;
+        color: $font-main;
+    }
+}
+
+.tile-info-sub {
+    color: $main-dark;
+    margin-top: 3%;
+    opacity: 70%;
+    width: 65%;
+}
