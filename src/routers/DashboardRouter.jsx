@@ -7,7 +7,7 @@ import SecureAuth from "../components/widgets/SecureAuth";
 
 import ScreenBlock from "../components/elements/ScreenBlock";
 
-import WelcomeContainer from "../components/dashboards/WelcomeContainer";
+import WelcomeContainer from "../components/dashboards/welcome/WelcomeContainer";
 import AccountButton from "../components/buttons/AccountButton";
 
 export const DashboardRouter = () => {
