@@ -3,6 +3,7 @@ import React from "react";
 import user from "../../../api/user/user";
 import calendar from "../../../scripts/calendar";
 import VerifiedFloat from "../account/VerifiedFloat";
+import AccountSecuredTile from "./AccountSecuredTile";
 import NoServiceTile from "./NoServiceTile";
 
 const WelcomeContainer = () => {
@@ -17,6 +18,7 @@ const WelcomeContainer = () => {
       <h2>Its {calendar.today("named-noyear")}</h2>
       <div className="summary">
         <NoServiceTile />
+        <AccountSecuredTile />
       </div>
     </div>
   );
