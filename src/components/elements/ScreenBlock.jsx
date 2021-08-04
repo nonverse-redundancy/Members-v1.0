@@ -17,6 +17,7 @@ const ScreenBlock = ({ children, code }) => {
       error = "Forbidden";
       description = "You do not have permission to view this resource";
       break;
+    default:
   }
 
   document.title = `Nonverse | ${error}`;
