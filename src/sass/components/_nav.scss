@@ -29,6 +29,15 @@
       color: $font-main;
       cursor: pointer;
       margin: 1.5rem 0;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    .active {
+      color: $main-dark;
+      &:hover {
+        opacity: 1;
+      }
     }
     #settings {
       position: absolute;
