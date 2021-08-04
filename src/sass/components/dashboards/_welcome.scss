@@ -7,3 +7,25 @@
     flex-direction: row;
 
 }
+
+.cta-explore {
+    background: linear-gradient(135deg, #2FEBE0 0%, #9685FF 100%);
+    box-shadow: 3px 3px 20px 0px rgba($color: blueviolet, $alpha: 0.5);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 18%;
+    right: 10%;
+    bottom: -9%;
+    border-radius: 100px;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(95%);
+    }
+    span {
+        color: $main;
+        font-size: 16px;
+    }
+}
